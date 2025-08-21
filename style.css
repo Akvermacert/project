@@ -1,0 +1,180 @@
+/* General Page Setup */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f9fc;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    font-style: italic;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #dc3545;
+    text-align: center;
+}
+
+/* Parent container for form + preview */
+.builder-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+    align-items: flex-start;
+    /* keep both columns top-aligned */
+}
+
+/* Form inside flexbox */
+.builder-container form {
+    flex: 1 1 50%;
+    /* take about half width */
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Headings inside the form */
+form strong {
+    display: block;
+    font-size: 1.2em;
+    margin: 20px 0 10px;
+    color: #333;
+}
+
+/* Table reset */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px;
+    vertical-align: top;
+}
+
+/* Inputs and textareas */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="month"],
+textarea,
+select {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+/* Education and Experience rows */
+.education-entry,
+.experience-entry {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.education-entry input,
+.experience-entry input,
+.project-entry input,
+.project-entry textarea,
+.experience-entry textarea {
+    flex: 1;
+    min-width: 140px;
+}
+
+/* Buttons */
+button {
+    padding: 8px 14px;
+    font-size: 0.95em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button.remove-education,
+button.remove-experience,
+button.remove-project {
+    background-color: #dc3545;
+}
+
+button.remove-education:hover,
+button.remove-experience:hover {
+    background-color: #b52a37;
+}
+
+/* Skills section checkboxes */
+td label {
+    margin-right: 10px;
+}
+
+/* Preview box */
+#resume-preview {
+    display: none;
+    flex: 1 1 45%;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-height: 90vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+#resume-preview.active {
+  display: block;
+}
+
+#resume-preview h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#resume-content h3,
+#resume-content h4 {
+    margin-top: 20px;
+    color: #007BFF;
+}
+
+#resume-content p,
+#resume-content li {
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+/* Stacked layout on mobile */
+@media (max-width: 768px) {
+    .builder-container {
+        flex-direction: column;
+    }
+
+    .builder-container form,
+    #resume-preview {
+        flex: 1 1 100%;
+        max-height: none;
+        overflow: visible;
+    }
+}
+#Experience-header,
+#Project-header {
+  display: none;
+}

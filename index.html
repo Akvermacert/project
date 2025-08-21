@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Resume Builder</h1>
+    <div class="builder-container">    
+        <form method="post">
+            <table>
+                <tr>
+                    <td><label for="Name"><strong>Name:</strong></label></td>
+                    <td><input type="text" id="Name" name="name" placeholder="Full Name"></td>
+                </tr>
+                <tr>
+                    <td><label for="email"><strong>Email:</strong></label></td>
+                    <td><input type="email" id="email" name="email" placeholder="abc@xyz.com"></td>
+                </tr>
+                <tr>
+                    <td><label for="phone"><strong>Phone:</strong></label></td>
+                    <td><input type="tel" id="phone" name="phone" placeholder="9876543210"></td>
+                </tr>
+                <tr>
+                    <td><label for="summary"><strong>Profile Summary:</strong></label></td>
+                    <td><textarea id="summary" name="summary" rows="5" cols="20"
+                            placeholder="Write your profile summary..."></textarea></td>
+                </tr>
+                <tr><!-- Education Section -->
+                <tr>
+                    <td colspan="2"><strong>Education:</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div id="education-container">
+                            <div class="education-entry">
+                                <!-- Course with datalist -->
+                                <input type="text" name="course" list="courses" placeholder="Select or type course">
+                                <datalist id="courses">
+                                    <option value="B.Tech">
+                                    <option value="M.Tech">
+                                    <option value="Diploma">
+                                    <option value="MBA">
+                                    <option value="Intermediate">
+                                    <option value="Matriculation">
+                                </datalist>
+
+                                <!-- Institute with datalist -->
+                                <input type="text" name="institute" list="institutes"
+                                    placeholder="Select or type institute">
+                                <datalist id="institutes">
+                                    <option value="ABC School">
+                                    <option value="HIT">
+                                    <option value="Institute of Management">
+                                    <option value="IITS">
+                                </datalist>
+
+                                <!-- Year -->
+                                <input type="month" name="year">
+
+                                <!-- Remove button for future use -->
+                                <button type="button" class="remove-education" style="display:none;">Remove</button>
+                            </div>
+                        </div>
+                        <button type="button" id="add-education">Add More</button>
+                    </td>
+                </tr>
+
+                <!-- Skills Section -->
+                <tr>
+                    <td colspan="2"><strong>Skills:</strong></td>
+                </tr>
+                <tr>
+                    <td>Predefined:</td>
+                    <td>
+                        <label><input type="checkbox" name="skills" value="HTML"> HTML</label>
+                        <label><input type="checkbox" name="skills" value="CSS"> CSS</label>
+                        <label><input type="checkbox" name="skills" value="JavaScript"> JavaScript</label>
+                        <label><input type="checkbox" name="skills" value="C++"> C++</label>
+                        <label><input type="checkbox" name="skills" value="Java"> Java</label>
+                        <label><input type="checkbox" name="skills" value="Python"> Python</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Add Skill:</td>
+                    <td>
+                        <input type="text" id="custom-skill" placeholder="Enter a skill">
+                        <button type="button" id="add-skill">Add</button>
+                        <div id="custom-skill-list"></div>
+                    </td>
+                </tr>
+                <!-- Experience Section -->
+                <tr>
+                    <td colspan="2"><strong>Experience:</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div id="experience-container">
+                            <div class="experience-entry">
+                                <!-- Job Role -->
+                                <input type="text" name="role" placeholder="Job Title / Role">
+
+                                <!-- Company Name -->
+                                <input type="text" name="company" placeholder="Company Name">
+
+                                <!-- Duration: From -->
+                                <label>From: </label>
+                                <input type="month" name="start-month">
+
+                                <!-- Duration: To -->
+                                <label>To: </label>
+                                <input type="month" name="end-month">
+                                <label>
+                                    <input type="checkbox" name="current-role"> Present
+                                </label>
+
+                                <!-- Work Summary -->
+                                <textarea name="work-summary" rows="3" cols="30"
+                                    placeholder="Briefly describe your work..."></textarea>
+
+                                <!-- Remove button (hidden for first entry) -->
+                                <button type="button" class="remove-experience" style="display:none;">Remove</button>
+                            </div>
+                        </div>
+                        <button type="button" id="add-experience">Add More</button>
+                    </td>
+                </tr>
+                <tr>
+                <!-- Project Section -->
+                    <td colspan="2"><strong>Project:</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div id="project-container">
+                            <div class="project-entry">
+                                <!-- Job Role -->
+                                <input type="text" name="projectName" placeholder="Title of Project">
+                                <!-- Duration: From -->
+                                <label>From: </label>
+                                <input type="month" name="start-month">
+
+                                <!-- Duration: To -->
+                                <label>To: </label>
+                                <input type="month" name="end-month">
+                                <label>
+                                    <input type="checkbox" name="current-project"> Present
+                                </label>
+
+                                <!-- Work Summary -->
+                                <textarea name="work-summary" rows="3" cols="30"
+                                    placeholder="Briefly describe your work..."></textarea>
+
+                                <!-- Remove button (hidden for first entry) -->
+                                <button type="button" class="remove-project" style="display:none;">Remove</button>
+                            </div>
+                        </div>
+                        <button type="button" id="add-project">Add More</button>
+                    </td>
+                </tr>
+
+
+            </table>
+        </form>
+        <div id="resume-preview">
+            <h2>Live Resume Preview</h2>
+            <div id="resume-content">
+                <h3 id="preview-name"></h3>
+                <p id="preview-email"></p>
+                <p id="preview-phone"></p>
+                <p id="preview-summary"></p>
+
+                <h4>Education</h4>
+                <ul id="preview-education"></ul>
+
+                <h4>Skills</h4>
+                <ul id="preview-skills"></ul>
+
+                <h4 id="Experience-header">Experience</h4>
+                <ul id="preview-experience"></ul>
+
+                <h4 id="Project-header">Project</h4>
+                <ul id="preview-project"></ul>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
