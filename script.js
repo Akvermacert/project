@@ -215,3 +215,18 @@ function showPreview() {
         preview.classList.add('active');
     }
 }
+//download pdf part
+document.getElementById("download-pdf").addEventListener("click", () => {
+  const element = document.getElementById("resume-content"); // The preview area
+
+  const opt = {
+    margin:       0.5,
+    filename:     'resume.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2 },
+    jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+  };
+
+  // Generate PDF
+  html2pdf().set(opt).from(element).save();
+});
