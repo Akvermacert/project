@@ -217,6 +217,11 @@ function showPreview() {
 }
 //download pdf part
 document.getElementById("download-pdf").addEventListener("click", () => {
+  const preview = document.getElementById("resume-preview");
+  if (!preview.classList.contains('active')) {
+    preview.classList.add('active');  // force show before PDF
+  }
+
   const element = document.getElementById("resume-content"); // The preview area
 
   const opt = {
@@ -227,6 +232,5 @@ document.getElementById("download-pdf").addEventListener("click", () => {
     jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
   };
 
-  // Generate PDF
   html2pdf().set(opt).from(element).save();
 });
